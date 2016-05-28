@@ -6,6 +6,8 @@ library(lubridate)
 suppressMessages(library(astsa))
 suppressMessages(library(tseries))
 suppressMessages(library(forecast))
+library(repr)
+options(repr.plot.width=7,repr.plot.height=4)
 ```
 
 # Time Series Modeling and Forcasting using Apple Data 
@@ -208,6 +210,7 @@ message("From the ACF and PACF plot its clear that the tranformed data is White 
 
 
 ```R
+options(repr.plot.width=7,repr.plot.height=6)
 Model1p0d1q0=Arima(AppleOpenPricelog, order=c(0, 1, 0))
 tsdiag(Model1p0d1q0)
 Model1p0d1q0
@@ -227,6 +230,7 @@ All the p-values of the Ljung-box statistics are way above the boundary which co
 
 
     As we can see in the time series diagram output, our model is a valid or acceptable for the following reasons. 
+    The standardized Residials plot support a randome residuals with center or mean Zero.
     The ACF of the residual confirms as the residuals are White Noise. 
     All the p-values of the Ljung-box statistics are way above the boundary which confirms the non independence of the residuals.
     
@@ -239,6 +243,7 @@ All the p-values of the Ljung-box statistics are way above the boundary which co
 
 
 ```R
+options(repr.plot.width=7,repr.plot.height=3)
 fittedActual=cbind.data.frame(fit=as.numeric(exp(fitted(Model1p0d1q0))),Date=head(AppleOpenPriceFinal[,1],-10),
                               OpenPrice=as.numeric(exp(AppleOpenPricelog))) 
 
@@ -270,7 +275,8 @@ Box.test(Model1p0d1q0$residuals, lag=1)
 ![png](output_19_2.png)
 
 
-    Compute the Box-Pierce or Ljung-Box test statistic for examining the null hypothesis of independence in a given time series.
+    Compute the Box-Pierce or Ljung-Box test statistic for examining the null hypothesis of independence 
+             in a given time series.
     
 
 
