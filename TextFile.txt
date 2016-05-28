@@ -1,1 +1,10 @@
 This is for checking the repository idea of commit and sync or publish
+
+Procedure to add file to repository:
+1. drag file/folder to the folder created for the repository.
+2. go to github desktop app
+3. the new file will be available on the second column after we pick the repository from the first column
+4. add summary and description 
+5. click commit at the bottom
+6. when previous step is done go to sync to push it to the server
+7. go to github.com/username then refresh
